@@ -79,7 +79,7 @@ can be used (notation: i,j=1,2,3,4,5):
 -------------------------------------------------------------
 
 GNU General Public License (GPLv3).
-See detailed text in the [LICENSE](./LICENSE) file.
+See detailed text in the [LICENSE](./LICENSE.md) file.
 
  ATTRIBUTION
 -------------------------------------------------------------
