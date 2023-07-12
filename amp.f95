@@ -7,7 +7,6 @@ module amp
   double precision :: v, d, eps
   double precision :: s
   logical :: only_phase_space, indisting_final_state_particles
-  integer :: idfun
 
   double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
   double precision, private :: tmp
