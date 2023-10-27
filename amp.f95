@@ -11,7 +11,7 @@ module amp
   double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
   double precision, private :: tmp
 
-  public  :: higgs2, higgs3, higgs4, higgs5, kin_space_n
+  public  :: amp2p, amp3p, amp4p, amp5p, kin_space_np
   private :: kin_3p, kin_4p, kin_mt4p
 
 contains
@@ -171,7 +171,7 @@ contains
     de = t22 * s(2) - t21 - t37
   end
 
-  subroutine higgs2(ans, x, dim, nbatch)
+  subroutine amp2p(ans, x, dim, nbatch)
     integer, intent(in) :: dim, nbatch
     double precision, intent(in) :: x(nbatch, dim)
     double precision, intent(out) :: ans(dim)
@@ -182,7 +182,7 @@ contains
     double precision :: th_c, th_s2, z1, z2, z12, f1, f2, factor, M
 
     if (nbatch.ne.1) then
-       stop "Error: routine 2-higgs requires nbatch=1"
+       stop "Error: routine 2-particle requires nbatch=1"
     end if
 
     do i=1,dim
@@ -221,7 +221,7 @@ contains
     end do
   end
 
-  subroutine higgs3(ans, x, dim, nbatch)
+  subroutine amp3p(ans, x, dim, nbatch)
     integer, intent(in) :: dim, nbatch
     double precision, intent(in) :: x(nbatch, dim)
     double precision, intent(out) :: ans(dim)
@@ -229,11 +229,11 @@ contains
     ! f2py intent(in) :: x, dim, nbatch
  
     integer :: i
-    double precision :: de, f(3), th_c(3), th_s(3), phi(3), f1, f2, f3, f4, z1, z2, z3, z12, z13, z23 
+    double precision :: de, f(3), th_c(3), th_s(3), phi(2), f1, f2, f3, f4, z1, z2, z3, z12, z13, z23 
     double precision :: factor, M
   
     if (nbatch.ne.4) then
-       stop "Error: routine 3-higgs requires nbatch=4"
+       stop "Error: routine 3-particle requires nbatch=4"
     end if
 
     do i=1,dim
@@ -241,7 +241,6 @@ contains
        th_c(1:2) = 2.d0*x(1:2,i)-1.d0
        th_s(1:2) = sqrt(1.d0 - th_c(1:2)**2)
        phi(1:2) = 2.d0*PI*x(3:4,i)
-       phi(3) = 0.d0
        
        call kin_3p(th_c, th_s, phi(1:2), f, de)
 
@@ -262,8 +261,8 @@ contains
               z3 = 1.d0 - th_c(3)
 
               z12 = 1.d0 - (th_s(1)*th_s(2)*cos(phi(1)-phi(2)) + th_c(1)*th_c(2))
-              z13 = 1.d0 - (th_s(1)*th_s(3)*cos(phi(1)-phi(3)) + th_c(1)*th_c(3))
-              z23 = 1.d0 - (th_s(2)*th_s(3)*cos(phi(2)-phi(3)) + th_c(2)*th_c(3))
+              z13 = 1.d0 - (th_s(1)*th_s(3)*cos(phi(1)       ) + th_c(1)*th_c(3))
+              z23 = 1.d0 - (th_s(2)*th_s(3)*cos(phi(2)       ) + th_c(2)*th_c(3))
 
               include 'M_2to3.h' !This file contains the actual amplitude and stores it on M variable
 
@@ -285,7 +284,7 @@ contains
     end do
   end
 
-  subroutine higgs4(ans, x, dim, nbatch)
+  subroutine amp4p(ans, x, dim, nbatch)
     integer, intent(in) :: dim, nbatch
     double precision, intent(in) :: x(nbatch, dim)
     double precision, intent(out) :: ans(dim)
@@ -297,7 +296,7 @@ contains
     double precision :: factor, M
   
     if (nbatch.ne.7) then
-       stop "Error: routine 4-higgs requires nbatch=7"
+       stop "Error: routine 4-particle requires nbatch=7"
     end if
 
     do i=1,dim
@@ -362,7 +361,7 @@ contains
     end do
   end
 
-  subroutine higgs5(ans, x, dim, nbatch)
+  subroutine amp5p(ans, x, dim, nbatch)
     integer, intent(in) :: dim, nbatch
     double precision, intent(in) :: x(nbatch, dim)
     double precision, intent(out) :: ans(dim)
@@ -375,7 +374,7 @@ contains
     double precision :: factor, M
   
     if (nbatch.ne.10) then
-       stop "Error: routine 5-higgs requires nbatch=10"
+       stop "Error: routine 5-particle requires nbatch=10"
     end if
 
     do i=1,dim
@@ -454,7 +453,7 @@ contains
 
 
 
-  subroutine kin_space_n(ans, x, dim, nbatch)
+  subroutine kin_space_np(ans, x, dim, nbatch)
     integer, intent(in) :: dim, nbatch
     double precision, intent(in) :: x(nbatch, dim)
     double precision, intent(out) :: ans(dim)

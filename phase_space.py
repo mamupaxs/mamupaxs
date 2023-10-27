@@ -15,118 +15,118 @@ def ini():
     amp.s=1.e-0
 
 
-def higgs2():
+def amp2p():
     start = timer()
 
-    int_higgs2 = vegas.Integrator(1 * [[0., 1.]])
+    int_amp2p = vegas.Integrator(1 * [[0., 1.]])
     try:
-        rank0 = int_higgs2.mpi_rank == 0
+        rank0 = int_amp2p.mpi_rank == 0
     except:
         rank0 = True
 
     if rank0:
-        print('Running case: Higgs2')
+        print('Running case: 2 particles')
 
     try:
-        res_higgs2 = int_higgs2(amp.higgs2, nitn=16, neval=PREC*1024*1024)
+        res_amp2p = int_amp2p(amp.amp2p, nitn=16, neval=PREC*1024*1024)
     except:
         if rank0:
             print('FAILURE!!!!')
     else:    
         if rank0:
-            print('result = %s    Q = %.2f' % (res_higgs2, res_higgs2.Q))
-            print(res_higgs2.summary())
+            print('result = %s    Q = %.2f' % (res_amp2p, res_amp2p.Q))
+            print(res_amp2p.summary())
     finally:
         end = timer()
         if rank0:
-            print(f'Case: Higgs2; TIME: {end-start}s')
+            print(f'Case: 2 particles; TIME: {end-start}s')
             print()
 
-def higgs3():
+def amp3p():
     start = timer()
 
-    int_higgs3 = vegas.Integrator(4 * [[0., 1.]])
+    int_amp3p = vegas.Integrator(4 * [[0., 1.]])
     try:
-        rank0 = int_higgs3.mpi_rank == 0
+        rank0 = int_amp3p.mpi_rank == 0
     except:
         rank0 = True
 
     if rank0:
-        print('Running case: Higgs3')
+        print('Running case: 3 particles')
 
     try:
-        res_higgs3 = int_higgs3(amp.higgs3, nitn=16, neval=PREC*1024*1024)
+        res_amp3p = int_amp3p(amp.amp3p, nitn=16, neval=PREC*1024*1024)
     except:
         if rank0:
             print('FAILURE!!!!')
     else:    
         if rank0:
-            print('result = %s    Q = %.2f' % (res_higgs3, res_higgs3.Q))
-            print(res_higgs3.summary())
+            print('result = %s    Q = %.2f' % (res_amp3p, res_amp3p.Q))
+            print(res_amp3p.summary())
     finally:
         end = timer()
         if rank0:
-            print(f'Case: Higgs3; TIME: {end-start}s')
+            print(f'Case: 3 particles; TIME: {end-start}s')
             print()
 
-def higgs4():
+def amp4p():
     start = timer()
 
-    int_higgs4 = vegas.Integrator(7 * [[0., 1.]])
+    int_amp4p = vegas.Integrator(7 * [[0., 1.]])
     try:
-        rank0 = int_higgs4.mpi_rank == 0
+        rank0 = int_amp4p.mpi_rank == 0
     except:
         rank0 = True
 
     if rank0:
-        print('Running case: Higgs4')
+        print('Running case: 4 particles')
 
     try:
-        res_higgs4 = int_higgs4(amp.higgs4, nitn=16, neval=PREC*1024*1024)
+        res_amp4p = int_amp4p(amp.amp4p, nitn=16, neval=PREC*1024*1024)
     except:
         if rank0:
             print('FAILURE!!!!')
     else:    
         if rank0:
-            print('result = %s    Q = %.2f' % (res_higgs4, res_higgs4.Q))
-            print(res_higgs4.summary())
+            print('result = %s    Q = %.2f' % (res_amp4p, res_amp4p.Q))
+            print(res_amp4p.summary())
     finally:
         end = timer()
         if rank0:
-            print(f'Case: Higgs4; TIME: {end-start}s')
+            print(f'Case: 4 particles; TIME: {end-start}s')
             print()
 
-def higgs5():
+def amp5p():
     start = timer()
 
-    int_higgs5 = vegas.Integrator(10 * [[0., 1.]])
+    int_amp5p = vegas.Integrator(10 * [[0., 1.]])
     try:
-        rank0 = int_higgs5.mpi_rank == 0
+        rank0 = int_amp5p.mpi_rank == 0
     except:
         rank0 = True
 
     if rank0:
-        print('Running case: Higgs5')
+        print('Running case: 5 particles')
 
     try:
-        res_higgs5 = int_higgs5(amp.higgs5, nitn=16, neval=PREC*1024*1024)
+        res_amp5p = int_amp5p(amp.amp5p, nitn=16, neval=PREC*1024*1024)
     except:
         if rank0:
             print('FAILURE!!!!')
     else:    
         if rank0:
-            print('result = %s    Q = %.2f' % (res_higgs5, res_higgs5.Q))
-            print(res_higgs5.summary())
+            print('result = %s    Q = %.2f' % (res_amp5p, res_amp5p.Q))
+            print(res_amp5p.summary())
     finally:
         end = timer()
         if rank0:
-            print(f'Case: Higgs5; TIME: {end-start}s')
+            print(f'Case: 5 particles; TIME: {end-start}s')
             print()
 
 def main():
     ini()
     for i in range(2):
-        for case in [higgs2, higgs3, higgs4, higgs5]:
+        for case in [amp2p, amp3p, amp4p, amp5p]:
             case()
 
 if __name__ == '__main__':
