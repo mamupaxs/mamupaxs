@@ -1,11 +1,19 @@
-all: amp.cpython-38-x86_64-linux-gnu.so
+DIR_MAIN = ./
+DIR_INCLUDE = $(DIR_MAIN)amplitude/
+DIR_SRC = $(DIR_MAIN)src/
 
-# debug: debug.f95
-# 	gfortran --free-line-length-512 -O3 $^ -o debug.out
+FLAGS = --f90flags=--free-line-length-512 --opt=-O3
 
-amp.cpython-38-x86_64-linux-gnu.so: amp.f95 
-	f2py3 -m amp -c $^ --f90flags=--free-line-length-512 --opt=-O3 skip: kin_3p kin_4p kin_mt4p 
+OLIB=amp.cpython-38-x86_64-linux-gnu.so
+SRC=$(DIR_SRC)amp.f95 
+SKIP=skip: kin_3p kin_4p kin_mt4p 
+
+
+all: $(OLIB)
+
+$(OLIB): $(SRC)
+	f2py3 -m amp -c $^ $(FLAGS) $(SKIP)
 
 .PHONY: clean
 clean:
-	rm -fr *.o *.so *.mod
+	rm -fr $(DIR_MAIN)*.o $(DIR_MAIN)*.so $(DIR_MAIN)*.mod

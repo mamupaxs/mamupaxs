@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import sys
+sys.path.append('..')
+
 import mpi4py
 from mpi4py import MPI
 
