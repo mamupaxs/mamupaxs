@@ -1,6 +1,6 @@
 *************************************************************
 ## MaMuPaXS
- - Version 1.0, July, 2023
+ - Version 1.0, November, 2023
  - Author(s):  Rafael L. Delgado
  - Email:  rafael.delgado@upm.es
 *************************************************************
@@ -35,7 +35,7 @@ is:
 
  USAGE
 -------------------------------------------------------------
-We have include the Python script *phase_space.py^* that computes
+We have include the Python script *phase_space.py* that computes
 the phase space for the 2->n processes with n=2,3,4 and 5. This is
 intended to be a test of the code as well as an usage example.
 
@@ -57,6 +57,14 @@ load v=256MeV, s=1TeV on the evaluation routines. The variable
 the phase space. If you are to compute a total cross secction,
 ```amp.only_phase_space=False``` should be used instead.
 
+If the MPI option is used, the Python script should be called with
+the appropriate mpirun command,
+```
+mpirun -N 6 ./phase_space.py
+```
+where 6 should be changed to match the number of computing cores
+and the Python script should be made executable.
+
 The matrix elements are coded inside the files
 
 * **M_2to2.h**, for a 2->2 process
@@ -70,8 +78,8 @@ describing the outgoing particles 4-momenta can be used (notation: i,j=1,2,3,4,5
 
 * **fi**      : $\lVert\vec p_i\rVert/\sqrt{s}$, three-momentum fractions
 * **zi**      : $1-\cos\theta_i$, angular functions
-* **zij**     : $1-\cos\theta_{ij}$, where $\theta_{ij}$ is the angle between the $i$-th and
-                $j$-th outgoing particle
+* **zij**     : $1-\cos\theta_{ij}$, where $\theta_{ij}$ is the angle between
+                the $i$-th and $j$-th outgoing particle
 
 The following variables can also be used, although were originally intended for
 MaMuPaXS internal use:
@@ -79,8 +87,8 @@ MaMuPaXS internal use:
                 the $i$-th outgoing particle 
 * **th_s(i)** : $\sin\theta_i$
 * **phi(i)**  : $\phi_i$, polar angle ($i\leq 3$)
-* **phi_e(k)**: $\phi_i$, polar angle for $k=i-4$, where $i$ refers to the $i$-th
-                outgoing particle ($i\geq 5).
+* **phi_e(k)**: $\phi_i$, polar angle for $k=i-4$, where $i$ refers to
+                the $i$-th outgoing particle ($i\geq 5$).
 
 Note that the code assumes, without loss of generality, that $\phi_l=0$, where
 $l=3$ for 3 outgoing particles and $l=4$ for $\geq$ 4 outgoing particles.
