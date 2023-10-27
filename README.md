@@ -10,7 +10,7 @@
 Evaluating total cross sections from differential cross sections
 for 2->n processes, with n>2, can be challenging. This code is
 intented for solving such problem for massless initial and
-final state particles and n=3,4 and 5. In 
+final state particles and n=3,4 and 5. 
 
 Part of the code is Fortran code that compiles to a Python module
 via F2PY. For the multidimensional numerical integration, the
@@ -20,11 +20,11 @@ and J.Comput.Phys.**439** (2021) 110386).
 
  REQUIREMENTS
 -------------------------------------------------------------
-This code requires a working Fortran compiler and a Python 3
-installation. The Python packages vegas, Numpy and F2PY should
-be available. Optionally, MPI can be used for parallelizing
-the Monte Carlo integration. For using this option, the mpi4py
-Python module is also required.
+This code requires a Fortran compiler and a Python 3 installation.
+The Python packages vegas, Numpy and F2PY should be available.
+Optionally, MPI can be used for parallelizing the Monte Carlo
+integration. For using this option, the mpi4py Python module
+is also required.
 
  COMPILING
 -------------------------------------------------------------
@@ -66,14 +66,24 @@ The matrix elements are coded inside the files
 
 In each of these files, the code should return a value with
 the matrix element on the ```M``` variable. The following variables
-can be used (notation: i,j=1,2,3,4,5):
+describing the outgoing particles 4-momenta can be used (notation: i,j=1,2,3,4,5):
 
-* **fi**      :
-* **zi**      :
-* **zij**     :
-* **th_c(i)** :
-* **th_s(i)** :
-* **phi(i)**  :
+* **fi**      : $\lVert\vec p_i\rVert/\sqrt{s}$, three-momentum fractions
+* **zi**      : $1-\cos\theta_i$, angular functions
+* **zij**     : $1-\cos\theta_{ij}$, where $\theta_{ij}$ is the angle between the $i$-th and
+                $j$-th outgoing particle
+
+The following variables can also be used, although were originally intended for
+MaMuPaXS internal use:
+* **th_c(i)** : $\cos\theta_i$, where $\theta_i$ is the azimuthal angle of
+                the $i$-th outgoing particle 
+* **th_s(i)** : $\sin\theta_i$
+* **phi(i)**  : $\phi_i$, polar angle ($i\leq 3$)
+* **phi_e(k)**: $\phi_i$, polar angle for $k=i-4$, where $i$ refers to the $i$-th
+                outgoing particle ($i\geq 5).
+
+Note that the code assumes, without loss of generality, that $\phi_l=0$, where
+$l=3$ for 3 outgoing particles and $l=4$ for $\geq$ 4 outgoing particles.
 
  LICENSE
 -------------------------------------------------------------
@@ -83,3 +93,10 @@ See detailed text in the [LICENSE](./LICENSE.md) file.
 
  ATTRIBUTION
 -------------------------------------------------------------
+
+We ask that if you use this code for work which results
+in a publication that you cite the following paper:
+
+* Rafael L. Delgado, Raquel Gómez-Ambrosio, Javier Martínez-Martín,
+Alexandre Salas-Bernárdez, Juan J. Sanz-Cillero,
+``SMEFT vs HEFT: multi-Higgs phenomenology'', to appear on arXiv
