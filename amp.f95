@@ -4,15 +4,16 @@ module amp
   implicit none
   save
 
-  double precision :: v, d, eps
-  double precision :: s
-  logical :: only_phase_space, only_integration, indisting_final_state_particles
+  double precision, public :: s
+  logical, public :: only_phase_space, only_integration, indisting_final_state_particles
 
-  double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
-  double precision, private :: tmp
 
   public  :: amp2p, amp3p, amp4p, amp5p, kin_space_np
+  include "params.h"
+
   private :: kin_3p, kin_4p, kin_mt4p
+  double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
+  include "tmp_pars.h"
 
 contains
   
