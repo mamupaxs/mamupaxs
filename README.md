@@ -55,7 +55,7 @@ Afterwards, the instructions
 ```
     amp.only_phase_space=False
     amp.indisting_final_state_particles=False
-    amp.only_integration=True
+    amp.only_integration=False
 
     amp.s=1.e-0
 ```
