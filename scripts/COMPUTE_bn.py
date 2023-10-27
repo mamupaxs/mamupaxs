@@ -30,10 +30,7 @@ def ini():
     amp.indisting_final_state_particles=False
     amp.only_integration=True
     amp.n_param=0
-    amp.v=246e-3
     amp.s=1.e0
-    amp.eps=0.7
-    amp.d=1.23
 
 def amplitude(n=4):
     start = timer()
