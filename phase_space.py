@@ -11,6 +11,8 @@ from timeit import default_timer as timer
 
 def ini():
     amp.only_phase_space=True
+    amp.only_integration=False
+    amp.indistinguisable_particles=False
     amp.v=0.256
     amp.s=1.e-0
 

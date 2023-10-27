@@ -6,7 +6,7 @@ module amp
 
   double precision :: v, d, eps
   double precision :: s
-  logical :: only_phase_space, indisting_final_state_particles
+  logical :: only_phase_space, only_integration, indisting_final_state_particles
 
   double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
   double precision, private :: tmp
@@ -205,9 +205,13 @@ contains
 
            include 'M_2to2.h' !This file contains the actual amplitude and stores it on M variable
 
-           ans(i) = factor * (5.d-1/s) * M*M
-           if (indisting_final_state_particles) then
-                   ans(i) = ans(i) / 2.d0
+           if (only_integration) then
+                ans(i) = M*factor
+           else
+                ans(i) = factor * (5.d-1/s) * M*M
+                if (indisting_final_state_particles) then
+                        ans(i) = ans(i) / 2.d0
+                end if
            end if
        else
            ans(i) = factor
@@ -266,9 +270,13 @@ contains
 
               include 'M_2to3.h' !This file contains the actual amplitude and stores it on M variable
 
-              ans(i) = factor * (5.d-1/s) * M*M
-              if (indisting_final_state_particles) then
-                      ans(i) = ans(i) / 6.d0
+              if (only_integration) then
+                   ans(i) = real(M)*factor
+              else
+                   ans(i) = factor * (5.d-1/s) * M*M
+                   if (indisting_final_state_particles) then
+                           ans(i) = ans(i) / 6.d0
+                   end if
               end if
           else
               ans(i) = factor
@@ -335,17 +343,14 @@ contains
 
               include 'M_2to4.h' !This file contains the actual amplitude and stores it on M variable
 
-              !ans(i) = real(M*conjg(M)*factor)
-              ans(i) = factor * (5.d-1/s) * M*M
-              if (indisting_final_state_particles) then
-                      ans(i) = ans(i) / 24.d0
+              if (only_integration) then
+                   ans(i) = real(M)*factor
+              else
+                   ans(i) = factor * (5.d-1/s) * M*M
+                   if (indisting_final_state_particles) then
+                           ans(i) = ans(i) / 24.d0
+                   end if
               end if
-
-              !print *,'s = ',s,'  M = ',M,'  factor = ',factor
-              !print *,'f = ',f
-              !print *,'zi = ',[z1, z2, z3, z4]
-              !print *,'z(12 13 14 23 24 34) = ',[z12, z13, z14, z23, z24, z34]
-              !print *,''
 
           else
               ans(i) = factor
@@ -426,17 +431,14 @@ contains
 
               include 'M_2to5.h' !This file contains the actual amplitude and stores it on M variable
 
-              !ans(i) = real(M*conjg(M)*factor)
-              ans(i) = factor * (5.d-1/s) * M*M
-              if (indisting_final_state_particles) then
-                      ans(i) = ans(i) / 120.d0
+              if (only_integration) then
+                   ans(i) = real(M)*factor
+              else
+                   ans(i) = factor * (5.d-1/s) * M*M
+                   if (indisting_final_state_particles) then
+                           ans(i) = ans(i) / 120.d0
+                   end if
               end if
-
-              !print *,'s = ',s,'  M = ',M,'  factor = ',factor
-              !print *,'f = ',f
-              !print *,'zi = ',[z1, z2, z3, z4]
-              !print *,'z(12 13 14 23 24 34) = ',[z12, z13, z14, z23, z24, z34]
-              !print *,''
           else
               ans(i) = factor
           end if
