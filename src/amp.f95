@@ -22,7 +22,7 @@ module amp
 
   private :: kin_3p, kin_4p, kin_mt4p
   double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
-  include "../amplitude/tmp_pars.h"
+  include "../amplitude/tmp_vars.h"
 
 contains
   
