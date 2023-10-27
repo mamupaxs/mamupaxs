@@ -1,3 +1,12 @@
+!  
+! amp.f95
+! 
+! Copyright (c) Rafael L. Delgado
+! 
+! GNU General Puglic License (GPLv3)
+! See detailed text in LICENSE.md file
+! 
+
 module amp
   use ieee_arithmetic
 

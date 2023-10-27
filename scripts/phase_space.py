@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+#  
+# phase_space.py
+# 
+# Copyright (c) Rafael L. Delgado
+# 
+# GNU General Puglic License (GPLv3)
+# See detailed text in LICENSE.md file
+# 
 
 import sys
 sys.path.append('..')
