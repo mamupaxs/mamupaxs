@@ -1,17 +1,18 @@
- ! Formula B.16 of the article
-  M = (f1*f2*z12*(f1*f2*z12 - f1 - f2 + 5.d-1))/(2.d0*f1*f2*z12 - f1*z1 - f2*z2) + &
-  	 (f1*f2*z12*(f1*f2*z12 - f1 - f2 + 5.d-1))/(2.d0*f1*f2*z12 - 2.d0*f1 - 2.d0*f2 + &
-  	 f1*z1 + f2*z2) + (f1*f3*z13*(f1*f3*z13 - f1 - f3 + 5.d-1))/(2.d0*f1*f3*z13 - &
-  	 f1*z1 - f3*z3) + (f1*f3*z13*(f1*f3*z13 - f1 - f3 + 5.d-1))/(2.d0*f1*f3*z13 - &
-  	 2.d0*f1 - 2.d0*f3 + f1*z1 + f3*z3) + ((f1*f2*z12 + f1*f3*z13 - f1)*(f1*f2*z12 + &
-  	 f1*f3*z13 - f1 - f2 - f3 + 5.d-1))/(-2.d0*f1*f2*z12 - 2.d0*f1*f3*z13 + 2.d0*f1 + &
-  	 f2*z2 + f3*z3 - 1.d0) + ((f1*f2*z12 + f1*f3*z13 - f1)*(f1*f2*z12 + f1*f3*z13 - &
-  	 f1 - f2 - f3 + 5.d-1))/(-2.d0*f1*f2*z12 - 2.d0*f1*f3*z13 + 2.d0*f1 + 2.d0*f2 + 2.d0*f3 - f2*z2 - f3*z3 - 1.d0)
- 
- 
- ! Formula 2.8 and 2.9 of the article
- !M = f1 * f2 * f3 * f4 * (z12 * z34 / (2 * f1 * f2 * z12 - f1 * z1 - f2 * z2) + z13 * z24 / (2 * f1 * f3 * z13 - f1 * z1 - f3 * z3) + z14 * z23 / (2 * f1 * f4 * z14 - f1 * z1 - f4 * z4) + z23 * z14 / (2 * f2 * f3 * z23 - f2 * z2 - f3 * z3) + z24 * z13 / (2 * f2 * f4 * z24 - f2 * z2 - f4 * z4) + z34 * z12 / (2 * f3 * f4 * z34 - f3 * z3 - f4 * z4))
+! Formula B.16 of the article
 
- 
- M = M**n_param
+x0 = f1*z1
+x1 = f2*z2
+x2 = 2*f1
+x3 = z12*z34
+x4 = f3*z3
+x5 = f4*z4
+x6 = 2*f4
+x7 = z13*z24
+x8 = z14*z23
+x9 = f2*f3
+M = -f1*f4*x9*(x3/(-f3*x6*z34 + x4 + x5) + x3/(-f2*x2*z12 + x0 + x1) &
+      + x7/(-f3*x2*z13 + x0 + x4) + x7/(-f2*x6*z24 + x1 + x5) + x8/(-f4 &
+      *x2*z14 + x0 + x5) + x8/(x1 + x4 - 2*x9*z23))
+
+M = M**n_param
 
