@@ -1,1 +1,1 @@
- double precision, private :: t1, t2, t3, t4, t5, t6, t7, t8, t9
+ double precision, private :: x0, x1, x2, x3, x4, x5, x6,  x7, x8, x9
