@@ -138,7 +138,7 @@ in a publication that you cite the following paper:
 
 * [1] Rafael L. Delgado, Raquel Gómez-Ambrosio, Javier Martínez-Martín,
 Alexandre Salas-Bernárdez, Juan J. Sanz-Cillero,
-``SMEFT vs HEFT: multi-Higgs phenomenology'', to appear on arXiv
+``SMEFT vs HEFT: multi-Higgs phenomenology'', arXiv:2311.04280 [hep-ph]
 
 
  BIBLIOGRAPHY

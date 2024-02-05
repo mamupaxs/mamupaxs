@@ -1,4 +1,11 @@
-! Formula B.16 of the article
+! Introduce your 2->4 matrix element or integrand here.
+! For illustrative purposes, we have set the identity function
+! as integrand.
+! 
+! M = 1.d0
+!
+! The previous definition of the integrand M has been commented out
+! in order to introduce formula B.16 of article [1]:
 
 x0 = f1*z1
 x1 = f2*z2
