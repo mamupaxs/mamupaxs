@@ -17,8 +17,8 @@
 !
 ! As an example, we are declaring the widely used floating point variables v and eps, as well as
 ! an integer parameter for integrating an arbitrary power of function B of formula B.16 on [1].
-! Actually, n_param=1 and n_param=2 will be required. See formulas 2.11 and 2.12 of [1].
-! 
+! For the actual integration (see formulas 2.11 and 2.12 of [1]) n_param=1 and n_param=2
+! must be evaluated. We also declare parameter Fp, that is used for the example of 2->2 amplitude.
 
-double precision :: v, eps
+double precision :: v, eps, Fp
 integer :: n_param
