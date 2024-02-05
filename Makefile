@@ -12,7 +12,7 @@ SKIP=skip: kin_3p kin_4p kin_mt4p
 all: $(OLIB)
 
 $(OLIB): $(SRC)
-	f2py3 -m amp -c $^ $(FLAGS) $(SKIP)
+	f2py -m amp -c $^ $(FLAGS) $(SKIP)
 
 .PHONY: clean
 clean:
