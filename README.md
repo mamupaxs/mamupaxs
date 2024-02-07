@@ -1,6 +1,6 @@
 *************************************************************
 ## MaMuPaXS
- - Version 1.1, November, 2023
+ - Version 1.2, February, 2024
  - Author(s):  Rafael L. Delgado
  - Email:  rafael.delgado@upm.es
 *************************************************************
