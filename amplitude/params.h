@@ -20,5 +20,5 @@
 ! For the actual integration (see formulas 2.11 and 2.12 of [1]) n_param=1 and n_param=2
 ! must be evaluated. We also declare parameter Fp, that is used for the example of 2->2 amplitude.
 
-double precision :: v, eps, Fp
-integer :: n_param
+double precision, public :: v, eps, fp
+integer, public :: n_param

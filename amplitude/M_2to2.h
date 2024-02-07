@@ -9,4 +9,5 @@
 ! 
 ! Sigma(Pi^+ Pi^0 -> Pi^+ Pi^0)
 
-M = -s*z1/2*Fp**2
+print *,"Fp = ", fp
+M = (-0.5d0)*s*z1/(fp*fp)
