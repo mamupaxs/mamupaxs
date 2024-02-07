@@ -27,6 +27,9 @@ def ini():
     amp.indisting_final_state_particles=False
     amp.only_integration=False
 
+    # amp.s=7.e0
+    # amp.fp=3.e0
+
     amp.s=1.e0
     amp.fp=1.e0
 
