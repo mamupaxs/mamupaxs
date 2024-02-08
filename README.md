@@ -1,6 +1,6 @@
 *************************************************************
 ## MaMuPaXS
- - Version 1.1, November, 2023
+ - Version 1.2, February, 2024
  - Author(s):  Rafael L. Delgado
  - Email:  rafael.delgado@upm.es
 *************************************************************
@@ -10,7 +10,7 @@
 Evaluating total cross sections from differential cross sections
 for 2->n processes, with n>2, can be challenging. This code is
 intended for solving such problem for massless initial and
-final state particles and n=3,4 and 5. Furthermore, the framework
+final state particles and n=3, 4 and 5. Furthermore, the framework
 is kept as simple as possible for this single task.
 
 Part of the code is Fortran code that compiles to a Python module
@@ -138,7 +138,7 @@ in a publication that you cite the following paper:
 
 * [1] Rafael L. Delgado, Raquel Gómez-Ambrosio, Javier Martínez-Martín,
 Alexandre Salas-Bernárdez, Juan J. Sanz-Cillero,
-``SMEFT vs HEFT: multi-Higgs phenomenology'', to appear on arXiv
+``SMEFT vs HEFT: multi-Higgs phenomenology'', arXiv:2311.04280 [hep-ph]
 
 
  BIBLIOGRAPHY
