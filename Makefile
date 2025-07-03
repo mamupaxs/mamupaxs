@@ -2,7 +2,7 @@ DIR_MAIN = ./
 DIR_INCLUDE = $(DIR_MAIN)amplitude/
 DIR_SRC = $(DIR_MAIN)src/
 
-FLAGS = --f90flags=--free-line-length-512 --opt=-O3
+FLAGS = --f90flags=--free-line-length-512 --opt=-O3 -I${CURDIR}
 
 OLIB=amp.cpython-38-x86_64-linux-gnu.so
 SRC=$(DIR_SRC)amp.f95 

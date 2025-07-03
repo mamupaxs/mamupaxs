@@ -20,11 +20,11 @@ module amp
 
 
   public  :: amp2p, amp3p, amp4p, amp5p, kin_space_np
-  include "../amplitude/params.h"
+  include "amplitude/params.h"
 
   private :: kin_3p, kin_4p, kin_mt4p
   double precision, parameter, private :: PI=4.D0*DATAN(1.D0)
-  include "../amplitude/tmp_vars.h"
+  include "amplitude/tmp_vars.h"
 
 contains
   
@@ -198,7 +198,7 @@ contains
 
            z12 = 2.d0
 
-           include "../amplitude/M_2to2.h" !This file contains the actual amplitude and stores it on M variable
+           include "amplitude/M_2to2.h" !This file contains the actual amplitude and stores it on M variable
 
            if (only_integration) then
                 ans(i) = M*factor
@@ -263,7 +263,7 @@ contains
               z13 = 1.d0 - (th_s(1)*th_s(3)*cos(phi(1)       ) + th_c(1)*th_c(3))
               z23 = 1.d0 - (th_s(2)*th_s(3)*cos(phi(2)       ) + th_c(2)*th_c(3))
 
-              include "../amplitude/M_2to3.h" !This file contains the actual amplitude and stores it on M variable
+              include "amplitude/M_2to3.h" !This file contains the actual amplitude and stores it on M variable
 
               if (only_integration) then
                    ans(i) = real(M)*factor
@@ -336,7 +336,7 @@ contains
               z24 = 1.d0 - (th_s(2)*th_s(4)*cos(phi(2)       ) + th_c(2)*th_c(4))
               z34 = 1.d0 - (th_s(3)*th_s(4)*cos(phi(3)       ) + th_c(3)*th_c(4))
 
-              include "../amplitude/M_2to4.h" !This file contains the actual amplitude and stores it on M variable
+              include "amplitude/M_2to4.h" !This file contains the actual amplitude and stores it on M variable
 
               if (only_integration) then
                    ans(i) = real(M)*factor
@@ -424,7 +424,7 @@ contains
               z35 = 1.d0 - (th_s(3)*th_s(5)*cos(phi(3)-phi_e(1)) + th_c(3)*th_c(5))
               z45 = 1.d0 - (th_s(4)*th_s(5)*cos(-phi_e(1)      ) + th_c(4)*th_c(5))
 
-              include "../amplitude/M_2to5.h" !This file contains the actual amplitude and stores it on M variable
+              include "amplitude/M_2to5.h" !This file contains the actual amplitude and stores it on M variable
 
               if (only_integration) then
                    ans(i) = real(M)*factor
