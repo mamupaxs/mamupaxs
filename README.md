@@ -25,7 +25,8 @@ upcoming article will describe it in detail.
  REQUIREMENTS
 -------------------------------------------------------------
 This code requires a Fortran compiler and a Python 3 installation.
-The Python packages vegas, Numpy and F2PY should be available.
+The Python packages vegas and Numpy (its new versions include F2PY)
+should be available. The ninja build system is also required by Numpy-F2PY.
 Optionally, MPI can be used for parallelizing the Monte Carlo
 integration. For using this option, the mpi4py Python module
 is also required.
